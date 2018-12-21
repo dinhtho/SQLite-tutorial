@@ -80,8 +80,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), null);
+        String address = null;
+        if (cursor.getColumnIndex(KEY_ADD) > -1) {
+            address = cursor.getString(cursor.getColumnIndex(KEY_ADD));
+        }
+        Contact contact = new Contact(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))),
+                cursor.getString(cursor.getColumnIndex(KEY_NAME)),
+                cursor.getString(cursor.getColumnIndex(KEY_PH_NO)), address);
         // return contact
         return contact;
     }
@@ -99,11 +104,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Contact contact = new Contact();
-                contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setPhoneNumber(cursor.getString(2));
-                if(cursor.getColumnCount()>3){
-                    contact.setAddress(cursor.getString(3));
+                contact.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
+                contact.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+                contact.setPhoneNumber(cursor.getString(cursor.getColumnIndex(KEY_PH_NO)));
+                if (cursor.getColumnIndex(KEY_ADD) > -1) {
+                    contact.setAddress(cursor.getString(cursor.getColumnIndex(KEY_ADD)));
                 }
                 // Adding contact to list
                 contactList.add(contact);

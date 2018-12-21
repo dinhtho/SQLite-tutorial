@@ -6,31 +6,28 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.0.0"
-    timestamp="1545363568170"
+    timestamp="1545364912275"
     token="-2336040126193277797"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="84" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="8" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
-        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/outputs/apk/debug/app-debug.apk"
-        type="SPLIT_MAIN" />
-    <artifact
-        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
         location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -56,19 +53,19 @@
     <artifact
         location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
+    <artifact
+        location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/outputs/apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1545363568170"
+        timestamp="1545364912275"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/outputs/apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
-            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -94,6 +91,9 @@
         <artifact
             location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/outputs/apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
