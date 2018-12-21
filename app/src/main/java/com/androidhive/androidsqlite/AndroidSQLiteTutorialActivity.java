@@ -5,36 +5,62 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 
 public class AndroidSQLiteTutorialActivity extends Activity {
-    /** Called when the activity is first created. */
+    private static final String TAG = "AndroidSQLiteTutorialAc";
+    private DatabaseHandler db;
+
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
-        DatabaseHandler db = new DatabaseHandler(this);
-        
-        /**
-         * CRUD Operations
-         * */
-        // Inserting Contacts
-        Log.d("Insert: ", "Inserting ..");
-        db.addContact(new Contact("Ravi", "9100000000"));
-        db.addContact(new Contact("Srinivas", "9199999999"));
-        db.addContact(new Contact("Tommy", "9522222222"));
-        db.addContact(new Contact("Karthik", "9533333333"));
+
+        db = new DatabaseHandler(this, 1);
+
+        List<Contact> contacts = db.getAllContacts();
+        if (contacts.isEmpty()) {
+            Log.d("Insert: ", "Inserting ..");
+            db.addContact(new Contact("Ravi", "9100000000"));
+            db.addContact(new Contact("Srinivas", "9199999999"));
+            db.addContact(new Contact("Tommy", "9522222222"));
+            db.addContact(new Contact("Karthik", "9533333333"));
+        }
+
 
         // Reading all contacts
-        Log.d("Reading: ", "Reading all contacts..");
-        List<Contact> contacts = db.getAllContacts();
-
-        for (Contact cn : contacts) {
-            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
-                // Writing Contacts to log
-        Log.d("Name: ", log);
-        
+        for (Contact cn : db.getAllContacts()) {
+            Log.i(TAG, "onCreate: "+ "id: "+ cn.getId()+ " name: "+ cn.getName()+ " phone: "+ cn.getPhoneNumber());
         }
+
+        findViewById(R.id.btUpgrade).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // upgrade db to version 2
+                if (db.getDatabaseVersion() == 1) {
+                    Log.i(TAG, "onClick: column count of version " + db.getDatabaseVersion() + ": " + db.getColumnCount());
+                    db = new DatabaseHandler(AndroidSQLiteTutorialActivity.this, 2);
+                    Log.i(TAG, "onClick: column count of version " + db.getDatabaseVersion() + ": " + db.getColumnCount());
+
+                    // add address for address column
+                    for (Contact cn : db.getAllContacts()) {
+                        if (cn.getAddress() == null) {
+                            cn.setAddress("vn");
+                            db.updateContact(cn);
+                        }
+
+                    }
+                    // Reading all contacts
+                    for (Contact cn : db.getAllContacts()) {
+                        Log.i(TAG, "onCreate: "+ "id: "+ cn.getId()+ " name: "+ cn.getName()+
+                                " phone: "+ cn.getPhoneNumber()+" address: "+ cn.getAddress());
+                    }
+                }
+            }
+        });
     }
 }

@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\PCPV\\Desktop\\AndroidSQLiteTutorial1\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "/Users/dinhtho/Desktop/github/SQLite-tutorial/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\PCPV\\Desktop\\AndroidSQLiteTutorial1\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "/Users/dinhtho/Desktop/github/SQLite-tutorial/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "4,3",
                         "startColumns": "4,4",
-                        "startOffsets": "138,59",
+                        "startOffsets": "134,56",
                         "endColumns": "79,77",
-                        "endOffsets": "213,132"
+                        "endOffsets": "209,129"
                     },
                     "to": {
                         "startLines": "2,3",
